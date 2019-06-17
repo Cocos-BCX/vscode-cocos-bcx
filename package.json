@@ -1,0 +1,21 @@
+{
+	"name": "vscode-cocosbcx",
+	"displayName": "VSCode Cocos-BCX",
+	"description": "VSCode Cocos-BCX",
+	"version": "0.0.1",
+	"publisher": "cocosbcx",
+	"engines": {
+		"vscode": "^1.28.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "lua",
+				"path": "./snippets.json"
+			}
+		]
+	}
+}

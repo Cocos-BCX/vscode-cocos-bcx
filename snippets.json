@@ -1,0 +1,390 @@
+{
+    "cjson.decode": {
+        "scope": "lua",
+        "prefix": "cjson.decode",
+        "body": "cjson.decode($1)",
+        "description": "cjson.decode(json_string)"
+    },
+    "cjson.encode": {
+        "scope": "lua",
+        "prefix": "cjson.encode",
+        "body": "cjson.encode($1)",
+        "description": "cjson.encode(table)"
+    },
+
+	"chainhelper:hash256": {
+		"scope": "lua",
+		"prefix": "chainhelper:hash256",
+		"body": "chainhelper:hash256(${1:source})",
+		"description": "Return hash256 string"
+	},
+	"chainhelper:hash512": {
+		"scope": "lua",
+		"prefix": "chainhelper:hash512",
+		"body": "chainhelper:hash512(${1:source})",
+		"description": "Return hash512 string"
+	},
+	"chainhelper:create_nh_asset": {
+		"scope": "lua",
+		"prefix": "chainhelper:create_nh_asset",
+		"body": "chainhelper:create_nh_asset(${1:owner_id_or_name},${2:symbol},${3:world_view}, ${4:base_describe}, ${5:enable_logger})",
+		"description": "Create non-homogeneous items. Contract owners must have corresponding creating authentication"
+	},
+	"chainhelper:adjust_lock_asset": {
+        "scope": "lua",
+        "prefix": "chainhelper:adjust_lock_asset",
+        "body": "chainhelper:adjust_lock_asset(${1:symbol_or_id}, ${2:amount})",
+        "description": "Adjust contract owners' assets that are locked in this contract"
+	},
+
+
+    "chainhelper:log": {
+        "scope": "lua",
+        "prefix": "chainhelper:log",
+        "body": "chainhelper:log('${1:message}')",
+        "description": "Information to be recorded, shall be recorded in the contract result"
+    },
+    "chainhelper:is_owner": {
+        "scope": "lua",
+        "prefix": "chainhelper:is_owner",
+        "body": "chainhelper:is_owner()",
+        "description": "Judge whether contract caller is the owner，used for contract assert"
+    },
+    "chainhelper:read_chain": {
+        "scope": "lua",
+        "prefix": "chainhelper:read_chain",
+        "body": "chainhelper:read_chain()",
+        "description": "Contact data IO read operation, corresponding to read_list registry"
+    },
+    "chainhelper:write_chain": {
+        "scope": "lua",
+        "prefix": "chainhelper:write_chain",
+        "body": "chainhelper:write_chain()",
+        "description": "Contact data IO write operation, corresponding to write_list registry"
+	},
+	
+	"chainhelper:get_account_balance": {
+        "scope": "lua",
+        "prefix": "chainhelper:get_account_balance",
+        "body": "chainhelper:get_account_balance(${1:account_name_or_id},${2:asset_symbol_or_id})",
+        "description": ""
+	},
+	
+	"chainhelper:nht_describe_change": {
+        "scope": "lua",
+        "prefix": "chainhelper:nht_describe_change",
+        "body": "chainhelper:nht_describe_change(${1:nht_hash_or_id},${2:key},${3:value},${4:enable_logger})",
+        "description": "Revise related contract description of non-fungible tokens. The revised part is the related zone of the contract "
+	},
+
+	"chainhelper:set_permissions_flag": {
+        "scope": "lua",
+        "prefix": "chainhelper:set_permissions_flag",
+        "body": "chainhelper:set_permissions_flag(${1:flag})",
+        "description": "Set contract authentication identifier to initiate or stop the request for contract signature. Only the corresponding trusted execution environment has contract authentication."
+	},
+
+	"chainhelper:change_contract_authority": {
+        "scope": "lua",
+        "prefix": "chainhelper:change_contract_authority",
+        "body": "chainhelper:change_contract_authority(${1:publickey})",
+        "description": "Revise contract authentication"
+	},
+
+
+
+
+	
+    "chainhelper:random": {
+        "scope": "lua",
+        "prefix": "chainhelper:random",
+        "body": "chainhelper:random()",
+        "description": "On-chain random function"
+    },
+    "chainhelper:transfer_from_owner": {
+        "scope": "lua",
+        "prefix": "chainhelper:transfer_from_owner",
+        "body": "chainhelper:transfer_from_owner(${1:contract_base_info.caller},${2:amount},${3:symbol},${4:islog})",
+        "description": "Transfer assets from contract caller to account 'to'，Amount：token，Token symbol：symbol"
+	},
+	
+	"chainhelper:make_memo": {
+        "scope": "lua",
+        "prefix": "chainhelper:make_memo",
+        "body": "chainhelper:make_memo(${1:to},${2:key},${3:value},${4:enable_logger})",
+        "description": "Encrypted data constructor，to：designated decrypter，key：encrypted torrent provided by the ECC shared secret，value：the encrypted content"
+	},
+	
+
+	"chainhelper:transfer_nht_from_caller": {
+        "scope": "lua",
+        "prefix": "chainhelper:transfer_nht_from_caller",
+        "body": "chainhelper:transfer_nht_from_caller(${1:to},${2:token_hash_or_id},${3:enable_logger})",
+        "description": "Transfer non-homogeneous assets from contract caller to account 'to'，token_hash_or_id：designated non-homogeneous token hash value or ID number"
+	},
+
+
+	"chainhelper:transfer_nht_from_owner": {
+        "scope": "lua",
+        "prefix": "chainhelper:transfer_nht_from_owner",
+        "body": "chainhelper:transfer_nht_from_owner(${1:to},${2:token_hash_or_id},${3:enable_logger})",
+        "description": "Transfer non-homogeneous assets from contract owner to accountTransfer non-homogeneous assets from contract owner to account 'to'，token_hash_or_id：Designated non-homogeneous token hash value or ID number"
+	},
+
+
+    "chainhelper:number_max": {
+        "scope": "lua",
+        "prefix": "chainhelper:number_max",
+        "body": "chainhelper:number_max()",
+        "description": "chainhelper:number_max"
+    },
+    "chainhelper:transfer_from_caller": {
+        "scope": "lua",
+        "prefix": "chainhelper:transfer_from_caller",
+        "body": "chainhelper:transfer_from_caller(${1:contract_base_info.owner},${2:amount},${3:symbol},${4:true})",
+        "description": "Transfer assets from contract caller to account 'to', Ammount: token，token symbol: symbol"
+    },
+    "chainhelper:time": {
+        "scope": "lua",
+        "prefix": "chainhelper:time",
+        "body": "chainhelper:time()",
+        "description": "chainhelper:time"
+    },
+
+    "bcx.demo.op.chain.data": {
+        "scope": "lua",
+        "prefix": "bcx.demo.read.chain.data",
+        "body": [
+            "function init()",
+            "    assert(chainhelper:is_owner(),'no auth')",
+            "",	
+            "    -- read data",
+            "    read_list = {public_data={rate=true,max_bet=true}}",
+            "    chainhelper:read_chain()",
+            "",
+            "    public_data.rate  = 98",
+            "    public_data.max_bet = 1000000",
+            "",
+            "    -- write data",
+            "    write_list = {public_data={rate=true,max_bet=true}}",
+            "    chainhelper:write_chain()",
+            "end"
+        ],
+        "description": "bcx 数据持久化"
+    },
+    "bcx.demo.random": {
+        "scope": "lua",
+        "prefix": "bcx.random",
+        "body": [
+            "--此随机数范例为一个10次随机累加并输出结果的函数",
+            "function sum_public_by_rand()",
+            "    read_list={public_data={sum_rand_10=true}}",
+            "    chainhelper:read_chain()",
+            "    --可以通过断言方式结合is_owner函数限定接口调用者权限",
+            "    assert(chainhelper:is_owner(),'You`re not the contract`s owner')",
+            "    local i=0",
+            "    while(i<10)do",
+            "        i=i+1",
+            "        if(public_data.sum_rand_10==nil)then",
+            "            public_data.sum_rand_10=0",
+            "            public_data.sum_rand_10=public_data.sum_rand_10+chainhelper:random()%100",
+            "--random()后取%的数值即为需要随机的数值范围，例如本例中随机结果为0~99",
+            "        else",
+            "            public_data.sum_rand_10=public_data.sum_rand_10+chainhelper:random()%100",
+            "        end",
+            "    end",
+            "    write_list={public_data={sum_rand_10=true}}",
+            "    chainhelper:write_chain()",
+            "    chainhelper:log('date:'..date('%Y-%m-%dT%H:%M:%S', chainhelper:time()) .. ',sum:' .. public_data.sum_rand_10) end",
+            "end"
+        ]
+    },
+    "bcx.demo.luck_draw": {
+        "scope": "lua",
+        "prefix": "bcx.demo.luck_draw",
+        "body": [
+            "--设置奖池",
+            "function set_ticket(ticket)",
+            "  assert(chainhelper:is_owner(),'You`re not the contract`s owner')            ",
+            "  read_list={public_data={ticket_pool_1=true,ticket_pool_2=true}}  ",
+            "  chainhelper:read_chain()  ",
+            "  if(public_data.ticket_pool_1==nil)then  ",
+            "    public_data.ticket_pool_1={}  ",
+            "    public_data.ticket_pool_2={}  ",
+            "    if (public_data.ticket_pool_1[ticket]==nil) then            ",
+            "        public_data.ticket_pool_2[#public_data.ticket_pool_2+1]=ticket  ",
+            "        public_data.ticket_pool_1[ticket]=#public_data.ticket_pool_2  ",
+            "    end",
+            "  else",
+            "    if (public_data.ticket_pool_1[ticket]==nil) then  ",
+            "        public_data.ticket_pool_2[#public_data.ticket_pool_2+1]=ticket  ",
+            "        public_data.ticket_pool_1[ticket]=#public_data.ticket_pool_2  ",
+            "    end     ",
+            "  end",
+            "  assert(#public_data.ticket_pool_2<=12)",
+            "  write_list={public_data={ticket_pool_1={[ticket]=true},ticket_pool_2={[#public_data.ticket_pool_2]=true}}}  ",
+            "  chainhelper:write_chain()  ",
+            "  end",
+            "",
+            "--进行抽奖",
+            "function luck_draw(ticket,amount,asset)  ",
+            "  assert(amount>=1000000,'amount should not be less than 1000000')  ",
+            "  assert(asset=='COCOS','asset error')  ",
+            "  read_list={public_data={ticket_pool_1=true,ticket_pool_2=true}}  ",
+            "  chainhelper:read_chain()      ",
+            "  local total=chainhelper:get_account_balance(contract_base_info.owner,asset)      ",
+            "  assert((#public_data.ticket_pool_2)*amount<=total,'Current maximum compensation ratio:'..#public_data.ticket_pool_2..'The biggest bet at present:'..total/(#public_data.ticket_pool_2))  ",
+            "  chainhelper:transfer_from_caller(contract_base_info.owner,amount,asset,true)  ",
+            "  local index=chainhelper:random()%(#public_data.ticket_pool_2)+1      ",
+            "  local rate = chainhelper:random()%(#public_data.ticket_pool_2)+1",
+            "  chainhelper:log('luck:'..public_data.ticket_pool_2[index]..',rate:'..rate)",
+            "  if(public_data.ticket_pool_2[index]==ticket)then  ",
+            "    chainhelper:transfer_from_owner(contract_base_info.caller,rate*amount,asset,true)      ",
+            "  end",
+            " end",
+            " --重置奖池",
+            "function reset_ticket() ",
+            "    write_list_list={public_data={ticket_pool_1=false,ticket_pool_2=false}}",
+            "    chainhelper:write_chain()",
+            "end "
+        ]
+    },
+    "bcx.demo.lock.aasset": {
+        "scope": "lua",
+        "prefix": "bcx.demo.lock.aasset",
+        "body": [
+            "function init()",
+            "    assert(chainhelper:is_owner(),'chainhelper:is_owner()')",
+            "    read_list={public_data={is_init=true}}",
+            "    chainhelper:read_chain()",
+            "    assert(public_data.is_init==nil,'public_data.is_init==nil')",
+            "    public_data.locked=0",
+            "    public_data.is_init=true",
+            "    chainhelper:write_chain()",
+            "end",
+            "",
+            "function pay_with_lock(amount,symbol)",
+            "    assert(amount>0,'amount > 0')",
+            "    read_list={public_data={}}",
+            "    chainhelper:read_chain()",
+            "    assert(public_data.locked+amount>public_data.locked,'public_data.locked+amount>public_data.locked')",
+            "    public_data.locked=public_data.locked+amount;  --[[调整锁定记录]] ",
+            "    assert(public_data.locked<=chainhelper:number_max(),'public_data.locked<=chainhelper:number_max()')",
+            "    chainhelper:transfer_from_caller(contract_base_info.owner,amount,symbol,true)",
+            "--[[转入代币]]",
+            "    chainhelper:adjust_lock_asset(symbol,amount)  --[[锁定代币]]",
+            "    write_list=read_list",
+            "    chainhelper:write_chain()",
+            "end",
+            "",
+            "function adjustment_lock_and_transfer(to,amount,symbol)",
+            "    assert(chainhelper:is_owner(),'chainhelper:is_owner()')",
+            "    read_list={public_data={}}",
+            "    chainhelper:read_chain()",
+            "    assert(amount > 0 and public_data.locked – amount >= 0, 'amount>0 and public_data.locked-amount>=0')",
+            "    public_data.locked=public_data.locked-amount  --[[调整锁定记录]]",
+            "    chainhelper:adjust_lock_asset(symbol,-amount)      --[[解锁代币]]",
+            "    if(to~=contract_base_info.owner)then",
+            "        chainhelper:transfer_from_owner(to,amount,symbol,true)  --[[转出代币]]",
+            "    end",
+            "    write_list=read_list",
+            "    chainhelper:write_chain()",
+            "end"
+        ]
+    },
+
+    "bcx.read.chain": {
+        "scope": "lua",
+        "prefix": "bcx.read.chain",
+        "body": [
+            "-- read data",
+            "read_list = {public_data={rate=true,max_bet=true}}",
+            "chainhelper:read_chain()",
+            "chainhelper:log(public_data.rate, public_data.max_bet)"
+        ],
+        "description": "bcx read chain data"
+    },
+    "bcx.write.chain": {
+        "scope": "lua",
+        "prefix": "bcx.write.chain",
+        "body": [
+            "public_data.rate = 98",
+            "public_data.max_bet = 1000000",
+            "",
+            "-- write data",
+            "write_list = {public_data={rate=true,max_bet=true}}",
+            "chainhelper:write_chain()"
+        ],
+        "description": "bcx read chain data"
+    },
+    "bcx.time": {
+        "scope": "lua",
+        "prefix": "bcx.time",
+        "body": [
+            "function timetest() ",
+            "    public_data.time=date('%Y-%m-%dT%H:%M:%S', chainhelper:time()) ",
+            "    write_list={public_data={time=true}} ",
+            "    chainhelper:write_chain() ",
+            "end"
+        ]
+    },
+    "bcx.demo.transfer": {
+        "scope": "lua",
+        "prefix": "bcx.demo.transfer",
+        "body": [
+            "function transfer(amount,symbol,islog) ",
+            "    chainhelper:transfer_from_owner(contract_base_info.caller,amount,symbol,islog)",
+            "end"
+        ]
+    },
+    "bcx.set.hash": {
+        "scope": "lua",
+        "prefix": "bcx.set.hash",
+        "body": [
+            "function set_hash(source)",
+            "    public_data.hash256=chainhelper:hash256(source)",
+            "    public_data.hash512=chainhelper:hash512(source)",
+            "    chainhelper:write_chain() --默认：write_list={public_data={},private_data={}} ,更新全部数据 ，本合约仅有hash256，跟hash512两个数据",
+            "end"
+        ]
+    },
+    "bcx.check.hash": {
+        "scope": "lua",
+        "prefix": "bcx.check.hash",
+        "body": [
+            "function check_hash(source) ",
+            "    chainhelper:read_chain() --默认：read_list={public_data={},private_data={}} ,载入全部数据，本合约仅有hash256，跟hash512两个数据 ",
+            "    assert(public_data.hash256==chainhelper:hash256(source),'hash256 check error') ",
+            "    assert(public_data.hash512==chainhelper:hash512(source),'hash512 check error') ",
+            "end"
+        ]
+    },
+    "bcx.demo.nht.change.with.json": {
+        "scope": "lua",
+        "prefix": "bcx.demo.nht.change.with.json",
+        "body": [
+            "--以json字符串修改非同质资产描述",
+            "function my_nht_describe_change( nht_hash_or_id,values_json)",
+            "    local values=cjson.decode(values_json)",
+            "    for key,value in pairs(values)  do",
+            "        chainhelper:log('key:'..key..',value:'..value)",
+            "        chainhelper:nht_describe_change( nht_hash_or_id,key,value,true)",
+            "    end",
+            "end"
+        ]
+    },
+    "bcx.demo.nht.change.with.table": {
+        "scope": "lua",
+        "prefix": "bcx.demo.nht.change.with.table",
+        "body": [
+            "--以lua表格方式修改非同质资产描述",
+            "function nht_change_with_table( nht_hash_or_id,values_table)",
+            "    for key,value in pairs(values_table)  do",
+            "        chainhelper:log('key:'..key..',value:'..value)",
+            "        chainhelper:nht_describe_change( nht_hash_or_id,key,value,true)",
+            "    end",
+            "end"
+        ]
+    }
+
+}
