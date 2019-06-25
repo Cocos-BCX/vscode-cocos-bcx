@@ -2,7 +2,7 @@
 	"name": "vscode-cocosbcx",
 	"displayName": "VSCode Cocos-BCX",
 	"description": "VSCode Cocos-BCX",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "Cocos-BCX",
 	"engines": {
 		"vscode": "^1.28.0"
