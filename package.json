@@ -2,7 +2,7 @@
 	"name": "vscode-cocosbcx",
 	"displayName": "VSCode Cocos-BCX",
 	"description": "VSCode Cocos-BCX",
-	"version": "0.0.3",
+	"version": "0.0.5",
 	"publisher": "Cocos-BCX",
 	"engines": {
 		"vscode": "^1.28.0"
@@ -10,14 +10,52 @@
 	"categories": [
 		"Snippets"
 	],
+	"main": "./out/src/extension",
 	"contributes": {
 		"snippets": [
 			{
 				"language": "lua",
 				"path": "./snippets.json"
 			}
+		],
+		"commands": [
+			{
+				"command": "bcx.new_contract",
+				"title": "BCX - New Contract"
+			},
+			{
+				"command": "bcx.publish_contract",
+				"title": "BCX - Publish Contract"
+			},
+			{
+				"command": "bcx.test_contract",
+				"title": "BCX - Test Contract"
+			}
 		]
 	},
-	"repository":"https://github.com/Cocos-BCX/vscode-cocos-bcx",
-	"icon": "logo.png"
+	"repository": "https://github.com/Cocos-BCX/vscode-cocos-bcx",
+	"icon": "logo.png",
+	"activationEvents": [
+		"onCommand:bcx.new_contract",
+		"onCommand:bcx.publish_contract",
+		"onCommand:bcx.test_contract"
+	],
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"dependencies": {
+		"encoding": "^0.1.12",
+		"lodash": ">=4.17.13"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^11.12.0",
+		"mocha": "^6.1.4",
+		"typescript": "^2.5.2",
+		"vscode": "^1.1.36"
+	}
 }

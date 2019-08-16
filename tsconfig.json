@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "outDir": "out",
+        "allowJs": true,
+        // "checkJs": true,
+        // "noImplicitAny": false,
+        "lib": [
+            "es6"
+        ],
+        // "sourceMap": true,
+        // "strict": true,
+        "rootDir": ".",
+        "esModuleInterop": true
+    },
+    "exclude": [
+        "node_modules",
+        ".vscode-test",
+        "out"
+    ],
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.js"
+    ]
+}
