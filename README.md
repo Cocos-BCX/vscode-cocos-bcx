@@ -10,7 +10,7 @@
 
 Lua api from https://dev.cocosbcx.io/docs/notice-for-use
 
-<img src=https://raw.githubusercontent.com/Cocos-BCX/vscode-cocos-bcx/master/gif/bcxapi.gif >
+<img src=https://raw.githubusercontent.com/Cocos-BCX/vscode-cocos-bcx/blob/master/bcxapi.gif >
 
 ## contract operation
 
